@@ -1,243 +1,63 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Guia de Segurança Digital para a Melhor Idade</title>
+  <title>Portal Acessível</title>
   <style>
-    /* ===================================================
-       CONFIGURAÇÕES GERAIS E ACESSIBILIDADE
-       =================================================== */
-    :root {
-      --cor-fundo: #f4f6f9;
-      --cor-texto: #111827;
-      --cor-primaria: #0f4c81;
-      --cor-primaria-hover: #083358;
-      --cor-destaque: #f59e0b;
-      --cor-cartao: #ffffff;
-      --cor-alerta: #b91c1c;
-      --fonte-principal: Arial, Helvetica, sans-serif;
-    }
-
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
     body {
-      background-color: var(--cor-fundo);
-      color: var(--cor-texto);
-      font-family: var(--fonte-principal);
-      font-size: 22px; /* Fonte maior para melhor leitura */
+      font-family: Arial, sans-serif;
+      font-size: 22px; /* Tamanho de fonte ampliado */
       line-height: 1.6;
-      padding: 15px;
+      margin: 40px;
+      background-color: #ffffff;
+      color: #111111; /* Alto contraste */
     }
 
-    /* Foco visível reforçado para navegadores/teclado */
-    a:focus, button:focus, input:focus {
-      outline: 4px solid var(--cor-destaque);
-      outline-offset: 3px;
-    }
-
-    /* Container Principal */
-    .container {
-      max-width: 800px;
-      margin: 0 auto;
-    }
-
-    /* ===================================================
-       CABEÇALHO
-       =================================================== */
-    header {
-      background-color: var(--cor-primaria);
-      color: #ffffff;
-      padding: 30px 20px;
-      border-radius: 12px;
-      text-align: center;
-      margin-bottom: 25px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
-    }
-
-    header h1 {
-      font-size: 32px;
-      margin-bottom: 10px;
-    }
-
-    header p {
-      font-size: 22px;
-    }
-
-    /* ===================================================
-       NAVEGAÇÃO RÁPIDA (ATALHOS)
-       =================================================== */
-    nav {
-      margin-bottom: 30px;
-      aria-label: "Navegação por tópicos";
-    }
-
-    .menu-atalhos {
-      list-style: none;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 15px;
-      justify-content: center;
-    }
-
-    .btn-atalho {
-      display: inline-block;
-      background-color: var(--cor-primaria);
-      color: #ffffff;
-      text-decoration: none;
-      padding: 16px 24px;
-      border-radius: 10px;
-      font-weight: bold;
+    .btn-audio {
       font-size: 20px;
-      text-align: center;
-      min-height: 55px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-    }
-
-    .btn-atalho:hover {
-      background-color: var(--cor-primaria-hover);
-    }
-
-    /* ===================================================
-       SEÇÃO DE DICAS DE SEGURANÇA
-       =================================================== */
-    .cartao-dica {
-      background-color: var(--cor-cartao);
-      border-left: 10px solid var(--cor-primaria);
-      border-radius: 12px;
-      padding: 25px;
+      padding: 14px 28px;
+      background-color: #0056b3;
+      color: #ffffff;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
       margin-bottom: 25px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
     }
 
-    .cartao-dica.alerta {
-      border-left-color: var(--cor-alerta);
-    }
-
-    .cartao-dica h2 {
-      font-size: 26px;
-      color: var(--cor-primaria);
-      margin-bottom: 15px;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .cartao-dica.alerta h2 {
-      color: var(--cor-alerta);
-    }
-
-    .cartao-dica ul {
-      margin-left: 25px;
-      margin-top: 10px;
-    }
-
-    .cartao-dica li {
-      margin-bottom: 12px;
-    }
-
-    .destaque-texto {
-      background-color: #fef3c7;
-      padding: 2px 6px;
-      font-weight: bold;
-      border-radius: 4px;
-    }
-
-    /* ===================================================
-       RODAPÉ E AJUDA DE EMERGÊNCIA
-       =================================================== */
-    footer {
-      background-color: #1e293b;
-      color: #ffffff;
-      padding: 25px;
-      border-radius: 12px;
-      text-align: center;
-      margin-top: 30px;
-    }
-
-    footer p {
-      margin-bottom: 15px;
-    }
-
-    .btn-emergencia {
-      display: inline-block;
-      background-color: var(--cor-alerta);
-      color: #ffffff;
-      text-decoration: none;
-      font-weight: bold;
-      font-size: 22px;
-      padding: 18px 30px;
-      border-radius: 10px;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-    }
-
-    .btn-emergencia:hover {
-      background-color: #991b1b;
+    .btn-audio:hover {
+      background-color: #003d80;
     }
   </style>
 </head>
 <body>
 
-  <div class="container">
+  <!-- Botão para acionar a leitura -->
+  <button class="btn-audio" onclick="lerTexto()">🔊 Ouvir Página</button>
 
-    <header role="banner">
-      <h1>🛡️ NetSegura Idosos</h1>
-      <p>Sua plataforma simples de dicas de segurança no celular e computador.</p>
-    </header>
+  <!-- Conteúdo lido pelo script -->
+  <main id="conteudo-principal">
+    <h1>Bem-vindo ao Portal</h1>
+    <p>Este site foi desenvolvido para facilitar a sua leitura. Caso prefira escutar, basta clicar no botão de áudio acima a qualquer momento.</p>
+  </main>
 
-    <nav>
-      <ul class="menu-atalhos">
-        <li><a href="#senhas" class="btn-atalho">🔑 Senhas</a></li>
-        <li><a href="#golpes" class="btn-atalho">⚠️ Evitar Golpes</a></li>
-        <li><a href="#whatsapp" class="btn-atalho">💬 WhatsApp</a></li>
-      </ul>
-    </nav>
+  <script>
+    function lerTexto() {
+      // Captura todo o texto da área principal
+      const texto = document.getElementById('conteudo-principal').innerText;
 
-    <main role="main">
+      // Interrompe leituras anteriores em andamento
+      window.speechSynthesis.cancel();
 
-      <article id="senhas" class="cartao-dica" tabindex="0">
-        <h2>🔑 1. Como Criar Senhas Seguras</h2>
-        <p>A sua senha é a chave da sua casa digital. Nunca use informações fáceis de adivinhar.</p>
-        <ul>
-          <li><strong>Evite:</strong> Nomes de filhos, datas de nascimento ou sequências como 123456.</li>
-          <li><strong>Prefira:</strong> Frases fáceis de lembrar, como <span class="destaque-texto">MeuCaféAmarelo#88</span>.</li>
-          <li><strong>Atenção:</strong> Nunca anote suas senhas no verso do celular ou no cartão do banco.</li>
-        </ul>
-      </article>
+      // Configura a leitura em português
+      const mensagem = new SpeechSynthesisUtterance(texto);
+      mensagem.lang = 'pt-BR';
+      mensagem.rate = 0.9; // Velocidade levemente reduzida para maior clareza
 
-      <article id="golpes" class="cartao-dica alerta" tabindex="0">
-        <h2>⚠️ 2. Identificando Golpes e Mensagens Falsas</h2>
-        <p>Golpistas costumam criar urgência para que você aja sem pensar.</p>
-        <ul>
-          <li><strong>Bancos não ligam</strong> pedindo sua senha ou pedindo para transferir dinheiro "para teste".</li>
-          <li>Se receber mensagem dizendo que sua conta será bloqueada, <strong>não clique em links</strong>.</li>
-          <li>Em caso de dúvida, desligue o telefone e ligue para o número impresso no verso do seu cartão.</li>
-        </ul>
-      </article>
-
-      <article id="whatsapp" class="cartao-dica" tabindex="0">
-        <h2>💬 3. Cuidados no WhatsApp</h2>
-        <p>Proteger seu aplicativo de mensagens é fundamental para evitar falsidades ideológicas.</p>
-        <ul>
-          <li>Se um parente pedir dinheiro pelo WhatsApp com um número novo, <strong>ligue para o número antigo dele</strong> antes de enviar qualquer valor.</li>
-          <li>Nunca informe a ninguém o código de 6 dígitos que chega por SMS no seu celular.</li>
-        </ul>
-      </article>
-
-    </main>
-
-    <footer role="contentinfo">
-      <p>Estou em dúvida ou acho que caí em um golpe. O que fazer?</p>
-      <a href="tel:190" class="btn-emergencia" aria-label="Ligar para a Polícia Militar no número 190">
-        📞 Peça Ajuda de Um Familiar ou Ligue 190
-      </a>
-    </footer>
-
-  </div>
+      // Inicia a reprodução de áudio
+      window.speechSynthesis.speak(mensagem);
+    }
+  </script>
 
 </body>
 </html>
